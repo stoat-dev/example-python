@@ -22,4 +22,3 @@ tasks:
      name: "API Docs"
    static_hosting:
      path: redoc.html
-

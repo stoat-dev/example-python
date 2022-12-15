@@ -51,4 +51,3 @@ jobs:
       - name: Run Stoat Action
         uses: stoat-dev/stoat-action@v0
         if: always()
-

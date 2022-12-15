@@ -49,6 +49,7 @@ venv/
 .venv/
 .python-version
 .pytest_cache
+pdoc/
 
 # Translations
 *.mo
@@ -66,3 +67,5 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
+# Misc
+.DS_Store

@@ -37,7 +37,7 @@ class TestUserController(BaseTestCase):
 
         Creates list of users with given input array
         """
-        user = {"firstName":"firstName","lastName":"lastName","password":"password","userStatus":6,"phone":"phone","id":0,"email":"email","username":"username"}
+        user = [{"firstName":"firstName","lastName":"lastName","password":"password","userStatus":6,"phone":"phone","id":0,"email":"email","username":"username"}]
         headers = { 
             'Content-Type': 'application/json',
             'api_key': 'special-key',
@@ -56,7 +56,7 @@ class TestUserController(BaseTestCase):
 
         Creates list of users with given input array
         """
-        user = {"firstName":"firstName","lastName":"lastName","password":"password","userStatus":6,"phone":"phone","id":0,"email":"email","username":"username"}
+        user = [{"firstName":"firstName","lastName":"lastName","password":"password","userStatus":6,"phone":"phone","id":0,"email":"email","username":"username"}]
         headers = { 
             'Content-Type': 'application/json',
             'api_key': 'special-key',

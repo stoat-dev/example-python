@@ -44,6 +44,7 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+testreport/
 venv/
 .venv/
 .python-version
@@ -64,3 +65,4 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+

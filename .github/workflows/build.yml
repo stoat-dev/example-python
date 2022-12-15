@@ -1,0 +1,49 @@
+name: "Build"
+
+on:
+  push:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r test-requirements.txt
+
+      - name: Launch Server
+        run: |
+          python3 -m openapi_server &
+
+      - name: Wait for Server
+        uses: nev7n/wait_for_response@v1
+        with:
+          url: 'http://localhost:8080/v2/openapi.json'
+          responseCode: 200
+          timeout: 10000
+          interval: 500
+
+      - name: Test
+        run: tox
+
+      - name: Generate ReDoc
+        uses: seeebiii/redoc-cli-github-action@v10
+        with:
+          args: 'bundle openapi_server/openapi/openapi.yaml -o redoc.html'
+
+      - name: Generate Docs
+        run: |
+          pip install pdoc3
+          pdoc --html openapi_server --output-dir pdoc

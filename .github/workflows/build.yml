@@ -45,5 +45,5 @@ jobs:
 
       - name: Generate Docs
         run: |
-          pip install pydoc3
+          pip install pdoc3
           pdoc --html openapi_server --output-dir pdoc

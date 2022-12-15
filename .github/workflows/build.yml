@@ -22,5 +22,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install tox
 
+      - name: Launch Server
+        run: |
+          python3 -m openapi_server &
+
+      - name: Wait for Server
+        uses: nev7n/wait_for_response@v1
+        with:
+          url: 'http://localhost:8080/v2/openapi.json'
+          responseCode: 200
+          timeout: 10000
+          interval: 500
+
       - name: Test
         run: tox

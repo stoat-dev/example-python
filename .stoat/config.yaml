@@ -2,23 +2,22 @@
 version: 1
 enabled: true
 tasks:
- tests:
-   metadata:
-     name: "Test Results"
-   static_hosting:
-     path: testreport
- test-coverage:
-   metadata:
-     name: "Test Coverage"
-   static_hosting:
-     path: htmlcov
- pdoc:
-   metadata:
-     name: "Python Docs"
-   static_hosting:
-     path: pdoc/openapi_server
- redoc:
-   metadata:
-     name: "API Docs"
-   static_hosting:
-     path: redoc.html
+  job_runtime:
+    enabled: true
+  static_hosting:
+    tests:
+      metadata:
+        name: "Test Results"
+      path: testreport
+    test-coverage:
+      metadata:
+        name: "Test Coverage"
+      path: htmlcov
+    pdoc:
+      metadata:
+        name: "Python Docs"
+      path: pdoc/openapi_server
+    redoc:
+      metadata:
+        name: "API Docs"
+      path: redoc.html

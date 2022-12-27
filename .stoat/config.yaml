@@ -1,0 +1,23 @@
+---
+version: 1
+enabled: true
+plugins:
+  job_runtime:
+    enabled: true
+  static_hosting:
+    tests:
+      metadata:
+        name: "Test Results"
+      path: testreport
+    test-coverage:
+      metadata:
+        name: "Test Coverage"
+      path: htmlcov
+    pdoc:
+      metadata:
+        name: "Python Docs"
+      path: pdoc/openapi_server
+    redoc:
+      metadata:
+        name: "API Docs"
+      path: redoc.html

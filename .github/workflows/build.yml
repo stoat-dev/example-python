@@ -47,3 +47,7 @@ jobs:
         run: |
           pip install pdoc3
           pdoc --html openapi_server --output-dir pdoc
+
+      - name: Run Stoat Action
+        uses: stoat-dev/stoat-action@v0
+        if: always()
